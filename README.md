@@ -4,7 +4,7 @@
 
 Running on Ubuntu 22.04 LTS
 
-```
+```sh
 $ # Install NVM
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash  
 $ # Checks NVM version
