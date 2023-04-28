@@ -6,11 +6,16 @@ export const useFetchGifs = (category) => {
 
     const [images, setImage] = useState ([])
     const [isLoading, setIsLoading] = useState (true)
+    const [onError, setOnError] = useState(false)
 
     const getImages = async () => {
-        const newImages = await getGifs(category)
-        setImage(newImages)
-        setIsLoading(false)
+        try {
+            const newImages = await getGifs(category)
+            setImage(newImages)
+            setIsLoading(false)
+        } catch {
+            setOnError(true)
+        }
     }
 
     useLayoutEffect(() => {
@@ -19,6 +24,7 @@ export const useFetchGifs = (category) => {
 
     return {
         images,
-        isLoading
+        isLoading,
+        onError
     }
 };

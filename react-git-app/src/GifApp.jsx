@@ -11,8 +11,9 @@ function GifApp() {
     setCategories([newCat, ...categories])
   }
 
-  const { images, isLoading } = useFetchGifs(categories)
+  const { images, isLoading, onError } = useFetchGifs(categories)
 
+  console.log("onError: ", onError)
   console.log("Images: ", images)
   console.log("isLoading: ", isLoading)
 
