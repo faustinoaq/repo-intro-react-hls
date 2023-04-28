@@ -3,8 +3,7 @@ import AddCategory from "./AddCategory"
 import { useFetchGifs } from "./hooks/useFetchGifs"
 
 function GifApp() {
-
-  const {categories, setCategories} = useState(["Spiderman"])
+  const [categories, setCategories] = useState(["spiderman"])
 
   const onAddCategory = (newCat) => {
     if (categories.includes(newCat)) return
@@ -16,11 +15,12 @@ function GifApp() {
   console.log("onError: ", onError)
   console.log("Images: ", images)
   console.log("isLoading: ", isLoading)
+  console.log("categories: ", categories)
 
   return (
     <div>
       <h1>GifApp</h1>
-      <AddCategory onNewCat={value => onAddCategory(value)}/>
+      <AddCategory onNewCat={(value) => onAddCategory(value)} />
     </div>
   )
 }

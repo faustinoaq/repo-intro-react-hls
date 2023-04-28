@@ -1,29 +1,33 @@
-import { useState } from "react";
+import { useState } from "react"
 
-const AddCategory = (onNewCat) => {
-  const [ inputValue, setInputValue ] = useState([]);
+const AddCategory = (props) => {
+  const { children, onNewCat } = props
+  const [inputValue, setInputValue] = useState([])
 
   const onSubmit = (event) => {
-    event.preventDefault();
-    if(inputValue.trim().length <= 1) return
+    event.preventDefault()
+    if (inputValue.trim().length <= 1) return
     setInputValue("")
-    onNewCat(inputValue.trim())
-  };
+    onNewCat(inputValue.trim().toLowerCase())
+  }
 
-  const onInputChange =({target}) => {
+  const onInputChange = ({ target }) => {
     setInputValue(target.value)
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        placeholder="Buscar gif"
-        value={inputValue}
-        onChange={onInputChange}
-      />
-    </form>
-  );
-};
+    <div>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          placeholder="Buscar gif"
+          value={inputValue}
+          onChange={onInputChange}
+        />
+      </form>
+      {children}
+    </div>
+  )
+}
 
-export default AddCategory;
+export default AddCategory
