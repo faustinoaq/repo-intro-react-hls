@@ -19,7 +19,7 @@ $ yarn create vite
 $ cd bases-javascript-hnl
 $ # Install dependences and run
 $ yarn
-$ Yarn Dev
+$ yarn dev
 ```
 
 ![image](https://user-images.githubusercontent.com/3067335/233666524-74f097f5-e58f-41f2-af32-da2c7bf0f6e5.png)
