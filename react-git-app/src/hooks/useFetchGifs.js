@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getGifs } from "../helpers/getGifs";
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 export const useFetchGifs = (category) => {
 
@@ -18,7 +18,7 @@ export const useFetchGifs = (category) => {
         }
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         getImages();
     }, [])
 

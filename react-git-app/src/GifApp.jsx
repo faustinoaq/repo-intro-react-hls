@@ -1,6 +1,7 @@
 import { useState } from "react"
-import AddCategory from "./AddCategory"
+import AddCategory from "./components/AddCategory"
 import { useFetchGifs } from "./hooks/useFetchGifs"
+import GifGrid from "./components/GifGrid"
 
 function GifApp() {
   const [categories, setCategories] = useState(["spiderman"])
@@ -10,19 +11,16 @@ function GifApp() {
     setCategories([newCat, ...categories])
   }
 
-  const { images, isLoading, onError } = useFetchGifs(categories)
-
-  console.log("onError: ", onError)
-  console.log("Images: ", images)
-  console.log("isLoading: ", isLoading)
-  console.log("categories: ", categories)
-
   return (
     <div>
       <h1>GifApp</h1>
       <AddCategory onNewCat={(value) => onAddCategory(value)} />
+      {categories.map((category) => (
+        <GifGrid category={category} key={category}></GifGrid>
+      ))}
     </div>
   )
 }
+// GRID y COmponente que renderize
 
 export default GifApp
