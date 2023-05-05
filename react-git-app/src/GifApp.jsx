@@ -2,13 +2,16 @@ import { useState } from "react"
 import AddCategory from "./components/AddCategory"
 import { useFetchGifs } from "./hooks/useFetchGifs"
 import GifGrid from "./components/GifGrid"
+import "./styles/styles.css"
 
 function GifApp() {
   const [categories, setCategories] = useState(["spiderman"])
+  // const [categories, setCategories] = useState("spiderman")
 
   const onAddCategory = (newCat) => {
     if (categories.includes(newCat)) return
     setCategories([newCat, ...categories])
+    // setCategories(newCat)
   }
 
   return (
@@ -18,6 +21,7 @@ function GifApp() {
       {categories.map((category) => (
         <GifGrid category={category} key={category}></GifGrid>
       ))}
+      {/* <GifGrid category={categories} key={categories}></GifGrid> */}
     </div>
   )
 }
